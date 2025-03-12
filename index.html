@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="WDD 231 Course Homepage">
+    <meta name="author" content="Your Name">
+    <title>WDD 231 - Course Homepage</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/course.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <img src="images/profile.jpg" alt="Profile Picture">
+        <span>Rubia M. Francesco</span>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="#">Chamber</a></li>
+            <li><a href="#">GitHub Profile</a></li>
+            <li><a href="#">LinkedIn</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Home</h1>
+
+        <section class="coursework">
+            <h2>Course Work</h2>
+            <ul>
+                <li></li> <!-- Dynamic content will be added -->
+            </ul>
+        </section>
+
+        <section class="location">
+            <h2>Toloria, Madagascar</h2>
+            <img src="images/coursehome-lg.webp" alt="Baobab Trees">
+        </section>
+
+        <section class="certificate">
+            <h2>Web and Computer Programming Certificate</h2>
+            <div class="filters">
+                <button data-filter="all">All</button>
+                <button data-filter="CSE">CSE</button>
+                <button data-filter="WDD">WDD</button>
+            </div>
+            <div id="course-container">
+                <!-- Courses will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Rubia Magdalena Francesco 🌸 Madagascar</p>
+        <p id="lastModified"></p>
+    </footer>
+
+</body>
+</html>
