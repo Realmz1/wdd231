@@ -14,11 +14,15 @@
 </head>
 <body>
 
+    <!-- HEADER -->
     <header>
-        <img src="images/profile.jpg" alt="Profile Picture">
-        <span>Rubia M. Francesco</span>
+        <div class="profile">
+            <img src="images/profile.jpg" alt="Profile Picture">
+            <span>Dylan Rhoton</span>
+        </div>
     </header>
 
+    <!-- NAVIGATION -->
     <nav>
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
@@ -28,21 +32,32 @@
         </ul>
     </nav>
 
-    <main>
-        <h1>Home</h1>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Welcome to My Course Homepage</h1>
+        <p>Follow along as I progress through WDD 231 and Web Development fundamentals.</p>
+    </section>
 
+    <main>
+        <!-- COURSE WORK SECTION -->
         <section class="coursework">
             <h2>Course Work</h2>
             <ul>
-                <li></li> <!-- Dynamic content will be added -->
+                <li>HTML & CSS Fundamentals</li>
+                <li>JavaScript Programming</li>
+                <li>Responsive Design</li>
+                <li>API Integration</li>
             </ul>
         </section>
 
+        <!-- LOCATION SECTION -->
         <section class="location">
             <h2>Toloria, Madagascar</h2>
             <img src="images/coursehome-lg.webp" alt="Baobab Trees">
+            <p>Baobab trees are native to Madagascar and are a famous natural landmark.</p>
         </section>
 
+        <!-- CERTIFICATE SECTION -->
         <section class="certificate">
             <h2>Web and Computer Programming Certificate</h2>
             <div class="filters">
@@ -54,10 +69,19 @@
                 <!-- Courses will be dynamically inserted here -->
             </div>
         </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="contact">
+            <h2>Contact Me</h2>
+            <p>Email: <a href="mailto:rubia@example.com">rubia@example.com</a></p>
+            <p>GitHub: <a href="#">github.com/rubia</a></p>
+            <p>LinkedIn: <a href="#">linkedin.com/in/rubia</a></p>
+        </section>
     </main>
 
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; <span id="year"></span> Rubia Magdalena Francesco 🌸 Madagascar</p>
+        <p>&copy; <span id="year"></span> Dylan Rhoton 🌸 Madagascar</p>
         <p id="lastModified"></p>
     </footer>
 

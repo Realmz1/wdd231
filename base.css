@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -5,20 +6,28 @@ body {
     background-color: #f4f4f4;
 }
 
+/* HEADER */
 header {
-    display: flex;
-    align-items: center;
     background: #0e4166;
     color: white;
-    padding: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+header .profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 header img {
-    width: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     margin-right: 10px;
 }
 
+/* NAVIGATION */
 nav {
     background: black;
     text-align: center;
@@ -38,36 +47,47 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
+    padding: 10px;
 }
 
 nav ul li a.active {
     color: yellow;
+    font-weight: bold;
 }
 
-main {
-    padding: 20px;
+/* HERO SECTION */
+.hero {
+    background: #0e4166;
+    color: white;
+    text-align: center;
+    padding: 2rem;
 }
 
-h1 {
-    color: #0e4166;
+.hero h1 {
+    font-size: 2rem;
 }
 
-.coursework, .location, .certificate {
+/* SECTIONS */
+.coursework, .location, .certificate, .contact {
     background: white;
     padding: 20px;
-    margin: 20px 0;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.location img {
+    width: 100%;
     border-radius: 8px;
 }
 
-.coursework ul {
-    list-style: none;
-    padding: 0;
-}
-
+/* BUTTON FILTERS */
 .filters {
     display: flex;
     justify-content: center;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
 .filters button {
@@ -76,12 +96,14 @@ h1 {
     padding: 10px;
     border: none;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
 .filters button:hover {
     background: #0e4166;
 }
 
+/* FOOTER */
 footer {
     background: #0e4166;
     color: white;
