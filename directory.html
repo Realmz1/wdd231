@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Directory page of the San Miguel Chamber of Commerce">
+  <meta name="author" content="Your Full Name" />
+  <title>San Miguel Chamber | Directory</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+  <!-- Facebook Open Graph Meta -->
+  <meta property="og:title" content="San Miguel Chamber of Commerce Directory" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/og-image.jpg" />
+  <meta property="og:url" content="https://yourgithubusername.github.io/wdd231/chamber/directory.html" />
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="styles/normalize.css" />
+  <link rel="stylesheet" href="styles/chamber.css" />
+
+  <!-- JS -->
+  <script src="scripts/directory.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>San Miguel Chamber of Commerce</h1>
+    <nav>
+      <button id="menu-toggle">☰ Menu</button>
+      <ul id="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html" class="active">Directory</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Member Directory</h2>
+    <div class="view-toggle">
+      <button id="grid-view">Grid View</button>
+      <button id="list-view">List View</button>
+    </div>
+    <div id="members-container" class="grid"></div>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Your Full Name | WDD 231 | San Miguel, El Salvador</p>
+    <p id="lastModified"></p>
+  </footer>
+</body>
+</html>

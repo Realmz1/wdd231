@@ -1,0 +1,27 @@
+[
+    {
+      "name": "Sunrise Tech",
+      "address": "123 Tech Road",
+      "phone": "555-1234",
+      "website": "https://sunrisetech.com",
+      "image": "images/sunrisetech.png",
+      "membership": 3
+    },
+    {
+      "name": "Eco Farms",
+      "address": "456 Greenway Blvd",
+      "phone": "555-5678",
+      "website": "https://ecofarms.org",
+      "image": "images/ecofarms.png",
+      "membership": 2
+    },
+    {
+      "name": "Ocean Travels",
+      "address": "789 Ocean Ave",
+      "phone": "555-9012",
+      "website": "https://oceantravels.com",
+      "image": "images/oceantravels.png",
+      "membership": 1
+    }
+  ]
+  
