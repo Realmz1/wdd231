@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="WDD 231 Course Homepage">
-    <meta name="author" content="Your Name">
+    <meta name="description" content="WDD 231 Course Homepage - Web Development Fundamentals">
+    <meta name="author" content="Dylan Rhoton">
     <title>WDD 231 - Course Homepage</title>
     <link rel="stylesheet" href="styles/base.css">
     <script src="scripts/navigation.js" defer></script>
     <script src="scripts/date.js" defer></script>
     <script src="scripts/course.js" defer></script>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
-<body>
 
+<body>
     <!-- HEADER -->
     <header>
-        <div class="profile">
-            <img src="images/profile.jpeg" alt="Profile Picture">
-            <span>Dylan Rhoton</span>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/profile.jpeg" alt="Dylan Rhoton's Profile Picture" width="50" height="50"
+                    loading="lazy">
+                <div class="logo-text">
+                    <h1>Dylan Rhoton</h1>
+                    <span class="subtitle">Web Development Student</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+                    <li><a href="#">Chamber</a></li>
+                    <li><a href="https://github.com/Realmz1" target="_blank" rel="noopener noreferrer">GitHub
+                            Profile</a></li>
+                    <li><a href="https://www.linkedin.com/in/dylan-rhoton" target="_blank"
+                            rel="noopener noreferrer">LinkedIn</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <!-- NAVIGATION -->
-    <nav>
-        <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="#">Chamber</a></li>
-            <li><a href="https://github.com/Realmz1">GitHub Profile</a></li>
-            <li><a href="https://www.linkedin.com/in/dylan-rhoton">LinkedIn</a></li>
-        </ul>
-    </nav>
-
     <!-- HERO SECTION -->
     <section class="hero">
-        <h1>Welcome to My Course Homepage</h1>
-        <p>Follow along as I progress through WDD 231 and Web Development fundamentals.</p>
+        <div class="hero-content">
+            <h2>Welcome to My Course Homepage</h2>
+            <p>Follow along as I progress through WDD 231 and Web Development fundamentals.</p>
+        </div>
     </section>
 
     <main>
@@ -52,19 +62,20 @@
         <!-- LOCATION SECTION -->
         <section class="location">
             <h2>Toloria, Madagascar</h2>
-            <img src="images/coursehome-lg.jpg" alt="Baobab Trees">
+            <img src="images/coursehome-lg.webp" alt="Baobab Trees in Madagascar" width="400" height="200"
+                loading="lazy">
             <p>Baobab trees are native to Madagascar and are a famous natural landmark.</p>
         </section>
 
         <!-- CERTIFICATE SECTION -->
         <section class="certificate">
             <h2>Web and Computer Programming Certificate</h2>
-            <div class="filters">
-                <button data-filter="all">All</button>
+            <div class="filters" role="group" aria-label="Course filters">
+                <button data-filter="all" aria-pressed="true">All</button>
                 <button data-filter="CSE">CSE</button>
                 <button data-filter="WDD">WDD</button>
             </div>
-            <div id="course-container">
+            <div id="course-container" role="list">
                 <!-- Courses will be dynamically inserted here -->
             </div>
         </section>
@@ -73,8 +84,10 @@
         <section class="contact">
             <h2>Contact Me</h2>
             <p>Email: <a href="mailto:zulorule@gmail.com">zulorule@gmail.com</a></p>
-            <p>GitHub: <a href="https://github.com/Realmz1">github.com/realmz1</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/dylan-rhoton">linkedin.com/in/dylan-rhoton</a></p>
+            <p>GitHub: <a href="https://github.com/Realmz1" target="_blank"
+                    rel="noopener noreferrer">github.com/realmz1</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/dylan-rhoton" target="_blank"
+                    rel="noopener noreferrer">linkedin.com/in/dylan-rhoton</a></p>
         </section>
     </main>
 
@@ -83,6 +96,6 @@
         <p>&copy; <span id="year"></span> Dylan Rhoton 🌸 Madagascar</p>
         <p id="lastModified"></p>
     </footer>
-
 </body>
+
 </html>
