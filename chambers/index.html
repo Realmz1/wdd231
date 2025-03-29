@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Welcome to the Chamber of Commerce for [City Name]" />
+  <meta name="author" content="Your Name" />
+  <title>Chamber of Commerce | Home</title>
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="styles/normalize.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/weather.js" defer></script>
+  <script src="scripts/spotlight.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <img src="images/logo.webp" alt="Chamber Logo" />
+    <span>Your Chamber</span>
+    <button id="menuBtn">☰</button>
+  </header>
+
+  <nav id="navMenu">
+    <a href="index.html">Home</a>
+    <a href="directory.html">Directory</a>
+    <a href="#">Join</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <img src="images/hero-large.webp" alt="City View" />
+      <div class="cta">
+        <a href="#">Join the Chamber</a>
+      </div>
+    </section>
+
+    <section class="events">
+      <h2>Upcoming Events</h2>
+      <p>Business After Hours - Thursday 7PM</p>
+      <p>Monthly Luncheon - Next Tuesday</p>
+    </section>
+
+    <section class="weather">
+      <h2>Weather</h2>
+      <p id="current-temp"></p>
+      <p id="weather-desc"></p>
+      <div id="forecast"></div>
+    </section>
+
+    <section class="spotlights">
+      <h2>Business Spotlights</h2>
+      <div id="spotlight-container"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Your Name | WDD 231 | [Your State]</p>
+    <p id="lastModified"></p>
+  </footer>
+</body>
+</html>
