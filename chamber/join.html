@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Join the Chamber of Commerce" />
+  <meta name="author" content="Your Name" />
+  <title>Join the Chamber</title>
+  <link rel="stylesheet" href="styles/normalize.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/form.css" />
+  <script src="scripts/modals.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>San Miguel Chamber of Commerce</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="directory.html">Directory</a>
+      <a href="join.html">Join</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Membership Application</h2>
+    <form method="get" action="thankyou.html">
+      <label>First Name:
+        <input type="text" name="fname" required title="First Name" autocomplete="given-name" />
+      </label>
+      <label>Last Name:
+        <input type="text" name="lname" required title="Last Name" autocomplete="family-name" />
+      </label>
+      <label>Organization Title:
+        <input type="text" name="orgtitle" title="Organizational Title" autocomplete="organization-title" pattern="[A-Za-z\s\-]{7,}" />
+      </label>
+      <label>Email:
+        <input type="email" name="email" required title="Email Address" autocomplete="email" placeholder="example@email.com" />
+      </label>
+      <label>Mobile Number:
+        <input type="tel" name="phone" required title="Mobile Phone" autocomplete="tel" />
+      </label>
+      <label>Organization Name:
+        <input type="text" name="orgname" required title="Business/Organization" autocomplete="organization" />
+      </label>
+      <label>Membership Level:
+        <select name="membership" required>
+          <option value="">Choose...</option>
+          <option value="NP">NP - Nonprofit (Free)</option>
+          <option value="Bronze">Bronze</option>
+          <option value="Silver">Silver</option>
+          <option value="Gold">Gold</option>
+        </select>
+      </label>
+      <label>Business Description:
+        <textarea name="description" title="Business Description"></textarea>
+      </label>
+      <input type="hidden" name="timestamp" id="timestamp" />
+      <input type="submit" value="Apply Now" />
+    </form>
+
+    <section class="membership-cards">
+      <div class="card" id="np-card">
+        <h3>NP Membership</h3>
+        <button onclick="openModal('np-modal')">View Benefits</button>
+      </div>
+      <div class="card" id="bronze-card">
+        <h3>Bronze Membership</h3>
+        <button onclick="openModal('bronze-modal')">View Benefits</button>
+      </div>
+      <div class="card" id="silver-card">
+        <h3>Silver Membership</h3>
+        <button onclick="openModal('silver-modal')">View Benefits</button>
+      </div>
+      <div class="card" id="gold-card">
+        <h3>Gold Membership</h3>
+        <button onclick="openModal('gold-modal')">View Benefits</button>
+      </div>
+    </section>
+
+    <!-- Modals -->
+    <dialog id="np-modal">
+      <p>No cost. Nonprofits only. Access to training and community events.</p>
+      <button onclick="closeModal('np-modal')">Close</button>
+    </dialog>
+    <dialog id="bronze-modal">
+      <p>Includes events, training, basic ads. $100/year.</p>
+      <button onclick="closeModal('bronze-modal')">Close</button>
+    </dialog>
+    <dialog id="silver-modal">
+      <p>All Bronze benefits + homepage spotlight, newsletter feature. $250/year.</p>
+      <button onclick="closeModal('silver-modal')">Close</button>
+    </dialog>
+    <dialog id="gold-modal">
+      <p>Top benefits. Gold badge, front-page ad, training, event booth. $500/year.</p>
+      <button onclick="closeModal('gold-modal')">Close</button>
+    </dialog>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Your Name | WDD 231 | El Salvador</p>
+    <p id="lastModified"></p>
+  </footer>
+
+  <script>
+    document.getElementById("timestamp").value = new Date().toISOString();
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("lastModified").textContent = `Last modified: ${document.lastModified}`;
+  </script>
+</body>
+</html>

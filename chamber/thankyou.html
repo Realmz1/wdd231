@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Thank You for Joining the Chamber" />
+  <meta name="author" content="Your Name" />
+  <title>Thank You</title>
+  <link rel="stylesheet" href="styles/normalize.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/form.css" />
+</head>
+<body>
+  <header>
+    <h1>San Miguel Chamber of Commerce</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="directory.html">Directory</a>
+      <a href="join.html">Join</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Thank You for Joining!</h2>
+    <p>We appreciate your interest in becoming a member of the San Miguel Chamber of Commerce. Here is the information you submitted:</p>
+
+    <div id="submission-details" class="thankyou-card">
+      <!-- JavaScript will populate this section -->
+    </div>
+
+    <a href="index.html" class="button">Return to Home</a>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Your Name | WDD 231 | El Salvador</p>
+    <p id="lastModified"></p>
+  </footer>
+
+  <script>
+    // Fill year and last modified
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("lastModified").textContent = `Last modified: ${document.lastModified}`;
+
+    // Grab URL params
+    const params = new URLSearchParams(window.location.search);
+    const fname = params.get("fname") || "N/A";
+    const lname = params.get("lname") || "N/A";
+    const email = params.get("email") || "N/A";
+    const phone = params.get("phone") || "N/A";
+    const orgname = params.get("orgname") || "N/A";
+    const timestamp = params.get("timestamp") || "N/A";
+
+    // Create display
+    const display = `
+      <ul>
+        <li><strong>First Name:</strong> ${fname}</li>
+        <li><strong>Last Name:</strong> ${lname}</li>
+        <li><strong>Email:</strong> ${email}</li>
+        <li><strong>Phone:</strong> ${phone}</li>
+        <li><strong>Business Name:</strong> ${orgname}</li>
+        <li><strong>Submitted At:</strong> ${timestamp}</li>
+      </ul>
+    `;
+    document.getElementById("submission-details").innerHTML = display;
+  </script>
+</body>
+</html>
