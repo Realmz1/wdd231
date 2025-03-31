@@ -1,3 +1,8 @@
+// Menu Toggle
+document.getElementById('menu-toggle').addEventListener('click', () => {
+  document.getElementById('nav-list').classList.toggle('open');
+});
+
 // Display Year and Last Modified
 document.getElementById('year').textContent = new Date().getFullYear();
 document.getElementById('lastModified').textContent = `Last Modified: ${document.lastModified}`;
@@ -19,7 +24,7 @@ function displayMembers(members) {
 
     card.innerHTML = `
       <h3>${member.name}</h3>
-      <img src="${member.image}" alt="${member.name}" loading="lazy">
+      <img src="${member.image}" alt="${member.name}" loading="lazy" width="200" height="200">
       <p>${member.address}</p>
       <p>${member.phone}</p>
       <a href="${member.website}" target="_blank">Visit Website</a>
