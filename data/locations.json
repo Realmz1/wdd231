@@ -1,0 +1,51 @@
+[
+    {
+      "name": "San Miguel Cathedral",
+      "image": "images/cathedral.webp",
+      "address": "Parque Guzmán, San Miguel",
+      "description": "Historic cathedral located in the heart of San Miguel."
+    },
+    {
+      "name": "Chaparrastique Volcano",
+      "image": "images/volcano.webp",
+      "address": "San Miguel, El Salvador",
+      "description": "An active volcano perfect for adventurous hikers and climbers."
+    },
+    {
+      "name": "Metrocentro Mall",
+      "image": "images/metrocentro.webp",
+      "address": "Avenida Roosevelt, San Miguel",
+      "description": "One of the largest shopping malls in eastern El Salvador."
+    },
+    {
+      "name": "El Cuco Beach",
+      "image": "images/elcuco.webp",
+      "address": "San Miguel Coastline",
+      "description": "A beautiful beach known for surfing and relaxing sunsets."
+    },
+    {
+      "name": "Estadio Juan Francisco Barraza",
+      "image": "images/stadium.webp",
+      "address": "Calle Poniente, San Miguel",
+      "description": "Home to the city's local football team, with great atmosphere."
+    },
+    {
+      "name": "Plaza de Toros",
+      "image": "images/plaza.webp",
+      "address": "Calle Central, San Miguel",
+      "description": "Cultural site for local events and traditional festivities."
+    },
+    {
+      "name": "Museo Regional",
+      "image": "images/museum.webp",
+      "address": "Zona Rosa, San Miguel",
+      "description": "Explore San Miguel’s art and history."
+    },
+    {
+      "name": "Central Market",
+      "image": "images/market.webp",
+      "address": "Centro Histórico, San Miguel",
+      "description": "Traditional food and artisan crafts in a bustling local market."
+    }
+  ]
+  

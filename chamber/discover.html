@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Discover amazing places in our Chamber area" />
+  <meta name="author" content="Your Name" />
+  <title>Discover | San Miguel Chamber</title>
+  <link rel="stylesheet" href="styles/normalize.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/discover.css" />
+  <script src="scripts/discover.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>San Miguel Chamber of Commerce</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="directory.html">Directory</a>
+      <a href="join.html">Join</a>
+      <a href="discover.html" class="active">Discover</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="sidebar" id="visitor-message">
+      <!-- JS will inject localStorage message -->
+    </section>
+
+    <section class="grid-container" id="location-cards">
+      <!-- JS will inject location cards -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> San Miguel Chamber | El Salvador</p>
+    <p id="lastModified"></p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("lastModified").textContent = `Last modified: ${document.lastModified}`;
+  </script>
+</body>
+</html>
