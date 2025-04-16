@@ -1,24 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Discover amazing places in our Chamber area" />
   <meta name="author" content="Your Name" />
   <title>Discover | San Miguel Chamber</title>
-  <link rel="stylesheet" href="styles/normalize.css" />
-  <link rel="stylesheet" href="styles/base.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+
+  <!-- Facebook Open Graph Meta -->
+  <meta property="og:title" content="San Miguel Chamber of Commerce" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="../images/og-image.webp" />
+  <meta property="og:url" content="https://yourgithubusername.github.io/wdd231/chamber/discover.html" />
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="styles/chamber.css" />
   <link rel="stylesheet" href="styles/discover.css" />
+
+  <!-- JS -->
+  <script src="scripts/nav.js" defer></script>
+  <script src="scripts/date.js" defer></script>
   <script src="scripts/discover.js" defer></script>
 </head>
+
 <body>
   <header>
     <h1>San Miguel Chamber of Commerce</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="directory.html">Directory</a>
-      <a href="join.html">Join</a>
-      <a href="discover.html" class="active">Discover</a>
+      <button id="menu-toggle">☰ Menu</button>
+      <ul id="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="discover.html" class="active">Discover</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
@@ -42,4 +62,5 @@
     document.getElementById("lastModified").textContent = `Last modified: ${document.lastModified}`;
   </script>
 </body>
+
 </html>

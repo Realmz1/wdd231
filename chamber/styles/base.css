@@ -24,7 +24,26 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 1rem 20px;
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
+}
+
+/* Make sure text doesn't touch edges */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* HEADER */
@@ -36,6 +55,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    width: 100%;
 }
 
 .header-container {
@@ -107,18 +127,16 @@ nav ul li a {
     border-radius: 4px;
     transition: var(--transition);
     font-weight: 500;
+    display: block;
 }
 
-nav ul li a:hover {
-    color: var(--accent-color);
-    background: rgba(52, 152, 219, 0.1);
-}
-
+nav ul li a:hover,
 nav ul li a.active {
     color: var(--accent-color);
     background: rgba(52, 152, 219, 0.1);
 }
 
+/* Hamburger menu styling */
 .hamburger {
     display: none;
     background: none;
@@ -161,17 +179,18 @@ nav ul li a.active {
 
     nav ul {
         display: none;
-        position: fixed;
+        position: absolute;
         top: var(--header-height);
         right: -100%;
         width: 80%;
         max-width: 300px;
-        height: calc(100vh - var(--header-height));
+        height: auto;
         background: var(--white);
         flex-direction: column;
-        padding: 2rem;
-        transition: var(--transition);
+        padding: 1rem;
+        transition: right 0.3s ease;
         box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        z-index: 999;
     }
 
     nav ul.show {
@@ -181,12 +200,25 @@ nav ul li a.active {
 
     nav ul li {
         margin: 0;
+        width: 100%;
     }
 
     nav ul li a {
         display: block;
         padding: 1rem;
         border-radius: 4px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Make sure the header doesn't get too cramped */
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    /* Fix text spacing in containers */
+    .container {
+        padding: 1rem 15px;
     }
 }
 

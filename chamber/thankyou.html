@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,26 +10,43 @@
   <link rel="stylesheet" href="styles/normalize.css" />
   <link rel="stylesheet" href="styles/base.css" />
   <link rel="stylesheet" href="styles/form.css" />
+  <script src="scripts/nav.js" defer></script>
 </head>
+
 <body>
   <header>
-    <h1>San Miguel Chamber of Commerce</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="directory.html">Directory</a>
-      <a href="join.html">Join</a>
-    </nav>
+    <div class="header-container">
+      <h1>San Miguel Chamber of Commerce</h1>
+      <nav class="main-nav">
+        <button id="menu-toggle" class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul id="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="discover.html">Discover</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="join.html">Join</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <main class="container">
     <h2>Thank You for Joining!</h2>
-    <p>We appreciate your interest in becoming a member of the San Miguel Chamber of Commerce. Here is the information you submitted:</p>
+    <div class="form-container">
+      <p>We appreciate your interest in becoming a member of the San Miguel Chamber of Commerce. Here is the information
+        you submitted:</p>
 
-    <div id="submission-details" class="thankyou-card">
-      <!-- JavaScript will populate this section -->
+      <div id="submission-details" class="thankyou-card">
+        <!-- JavaScript will populate this section -->
+      </div>
+
+      <div class="action-buttons">
+        <a href="index.html" class="button">Return to Home</a>
+      </div>
     </div>
-
-    <a href="index.html" class="button">Return to Home</a>
   </main>
 
   <footer>
@@ -48,6 +66,9 @@
     const email = params.get("email") || "N/A";
     const phone = params.get("phone") || "N/A";
     const orgname = params.get("orgname") || "N/A";
+    const orgtitle = params.get("orgtitle") || "N/A";
+    const membership = params.get("membership") || "N/A";
+    const description = params.get("description") || "N/A";
     const timestamp = params.get("timestamp") || "N/A";
 
     // Create display
@@ -58,10 +79,13 @@
         <li><strong>Email:</strong> ${email}</li>
         <li><strong>Phone:</strong> ${phone}</li>
         <li><strong>Business Name:</strong> ${orgname}</li>
-        <li><strong>Submitted At:</strong> ${timestamp}</li>
+        <li><strong>Organization Title:</strong> ${orgtitle}</li>
+        <li><strong>Membership Level:</strong> ${membership}</li>
+        <li><strong>Submitted At:</strong> ${new Date(timestamp).toLocaleString()}</li>
       </ul>
     `;
     document.getElementById("submission-details").innerHTML = display;
   </script>
 </body>
+
 </html>
