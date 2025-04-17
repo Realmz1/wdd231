@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Confirmation - Desert Drive</title>
+    <meta name="description"
+        content="Thank you for registering your classic car with Desert Drive, New Mexico's premier classic car community.">
+    <!-- Google Fonts: Orbitron for headings and Roboto for body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1>Desert Drive</h1>
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="clubs.html">Car Clubs</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero confirmation-hero">
+        <div class="container">
+            <h2>Registration Confirmation</h2>
+            <p class="subheading">Thank you for submitting your classic car!</p>
+        </div>
+    </section>
+
+    <section class="confirmation-details">
+        <div class="container">
+            <div class="confirmation-message">
+                <h2>Your Registration Has Been Received!</h2>
+                <p>Thank you for submitting your classic car for consideration to be featured on Desert Drive. Our team
+                    will review your submission and contact you if your vehicle is selected for featuring on our
+                    website.</p>
+                <p>Below is a summary of the information you provided:</p>
+            </div>
+
+            <div class="registration-summary" id="registration-data">
+                <h3>Registration Details</h3>
+                <div class="loading-message">Loading submission data...</div>
+            </div>
+
+            <div class="what-next">
+                <h3>What Happens Next?</h3>
+                <ol>
+                    <li>Our team will review your submission within 5-7 business days.</li>
+                    <li>If your vehicle is selected, we'll contact you to schedule a professional photoshoot.</li>
+                    <li>Your classic car will be featured on our homepage and in our gallery.</li>
+                    <li>You'll receive a digital badge to share on your social media profiles.</li>
+                </ol>
+                <div class="next-actions">
+                    <a href="index.html" class="button">Return to Home</a>
+                    <a href="events.html" class="button">Explore Events</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-examples">
+        <div class="container">
+            <h2>Featured Vehicles</h2>
+            <p>These classic cars were recently featured on our homepage after being registered by their owners.</p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <img src="images/car1.jpg" alt="1965 Ford Mustang">
+                    <h3>1965 Ford Mustang</h3>
+                    <p>Restored to original condition with all matching numbers. Featured on our homepage in January
+                        2025.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="images/car2.jpg" alt="1957 Chevrolet Bel Air">
+                    <h3>1957 Chevrolet Bel Air</h3>
+                    <p>This stunning turquoise Bel Air has been in the same family for over 40 years. Featured in
+                        February 2025.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="images/car3.jpg" alt="1970 Dodge Challenger">
+                    <h3>1970 Dodge Challenger</h3>
+                    <p>A perfect example of American muscle with a 426 Hemi engine. Featured in March 2025.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Desert Drive</h3>
+                    <p>A Classic Car Cruises Community of New Mexico</p>
+                </div>
+                <div class="footer-nav">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="clubs.html">Car Clubs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Email: info@desertdrivecruises.com</p>
+                    <p>Phone: (505) 555-0123</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><span class="icon">Facebook</span></a>
+                        <a href="#" aria-label="Instagram"><span class="icon">Instagram</span></a>
+                        <a href="#" aria-label="Twitter"><span class="icon">Twitter</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Desert Drive | <a href="sitemap.html">Site Plan</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const registrationData = document.getElementById('registration-data');
+
+            // Get form data from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // Check if we have data
+            if (urlParams.has('owner-name')) {
+                // Clear loading message
+                registrationData.innerHTML = '';
+
+                // Create the table for the form data
+                const dataTable = document.createElement('table');
+                dataTable.className = 'data-table';
+
+                // Add table header
+                const headerRow = document.createElement('tr');
+                headerRow.innerHTML = '<th>Field</th><th>Information</th>';
+                dataTable.appendChild(headerRow);
+
+                // Add owner information
+                addDataRow(dataTable, 'Name', urlParams.get('owner-name'));
+                addDataRow(dataTable, 'Email', urlParams.get('owner-email'));
+                if (urlParams.get('owner-phone')) {
+                    addDataRow(dataTable, 'Phone', urlParams.get('owner-phone'));
+                }
+
+                // Add vehicle information
+                addDataRow(dataTable, 'Vehicle Year', urlParams.get('car-year'));
+                addDataRow(dataTable, 'Vehicle Make', urlParams.get('car-make'));
+                addDataRow(dataTable, 'Vehicle Model', urlParams.get('car-model'));
+                addDataRow(dataTable, 'Description', urlParams.get('car-description'));
+
+                // Add the table to the page
+                registrationData.appendChild(dataTable);
+
+                // Add car image placeholder
+                const imageNote = document.createElement('p');
+                imageNote.className = 'image-note';
+                imageNote.textContent = 'Your images will be processed separately.';
+                registrationData.appendChild(imageNote);
+
+                // Store data in localStorage for persistence (educational purposes only)
+                localStorage.setItem('lastRegistration', JSON.stringify(Object.fromEntries(urlParams)));
+            } else {
+                // No form data found, check localStorage for last submission
+                const lastRegistration = localStorage.getItem('lastRegistration');
+                if (lastRegistration) {
+                    // We have data from a previous submission
+                    const data = JSON.parse(lastRegistration);
+
+                    registrationData.innerHTML = '<h3>Your Previous Registration</h3>';
+                    registrationData.innerHTML += '<p>We found your previous registration in our system:</p>';
+
+                    // Create the table for the form data
+                    const dataTable = document.createElement('table');
+                    dataTable.className = 'data-table';
+
+                    // Add table header
+                    const headerRow = document.createElement('tr');
+                    headerRow.innerHTML = '<th>Field</th><th>Information</th>';
+                    dataTable.appendChild(headerRow);
+
+                    // Add owner information
+                    addDataRow(dataTable, 'Name', data['owner-name']);
+                    addDataRow(dataTable, 'Email', data['owner-email']);
+                    if (data['owner-phone']) {
+                        addDataRow(dataTable, 'Phone', data['owner-phone']);
+                    }
+
+                    // Add vehicle information
+                    addDataRow(dataTable, 'Vehicle Year', data['car-year']);
+                    addDataRow(dataTable, 'Vehicle Make', data['car-make']);
+                    addDataRow(dataTable, 'Vehicle Model', data['car-model']);
+                    addDataRow(dataTable, 'Description', data['car-description']);
+
+                    // Add the table to the page
+                    registrationData.appendChild(dataTable);
+                } else {
+                    // No data available
+                    registrationData.innerHTML = '<p>No registration data found. Please <a href="register.html">return to the registration form</a> to submit your classic car.</p>';
+                }
+            }
+
+            // Helper function to add rows to the data table
+            function addDataRow(table, label, value) {
+                if (!value) return; // Skip empty values
+
+                const row = document.createElement('tr');
+                const labelCell = document.createElement('td');
+                const valueCell = document.createElement('td');
+
+                labelCell.className = 'data-label';
+                labelCell.textContent = label;
+
+                valueCell.className = 'data-value';
+                valueCell.textContent = value;
+
+                row.appendChild(labelCell);
+                row.appendChild(valueCell);
+                table.appendChild(row);
+            }
+
+            // Highlight active page in navigation
+            document.querySelectorAll('.main-header nav a').forEach(link => {
+                if (link.getAttribute('href') === window.location.pathname.split('/').pop()) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

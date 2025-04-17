@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Your Car - Desert Drive</title>
+    <meta name="description"
+        content="Register your classic car to be featured on Desert Drive, New Mexico's premier classic car community.">
+    <!-- Google Fonts: Orbitron for headings and Roboto for body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1>Desert Drive</h1>
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="clubs.html">Car Clubs</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero register-hero">
+        <div class="container">
+            <h2>Register Your Classic Car</h2>
+            <p class="subheading">Get your vehicle featured on Desert Drive</p>
+        </div>
+    </section>
+
+    <section class="register-form">
+        <div class="container">
+            <h2>Vehicle Registration Form</h2>
+            <p>Share your classic car with the Desert Drive community. Fill out the form below to submit your vehicle
+                for consideration to be featured on our homepage and in our gallery.</p>
+
+            <form id="car-registration" class="contact-form" action="registration-confirmation.html" method="get">
+                <div class="form-group">
+                    <label for="owner-name">Your Name*</label>
+                    <input type="text" id="owner-name" name="owner-name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="owner-email">Email Address*</label>
+                    <input type="email" id="owner-email" name="owner-email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="owner-phone">Phone Number</label>
+                    <input type="tel" id="owner-phone" name="owner-phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="car-year">Vehicle Year*</label>
+                    <input type="number" id="car-year" name="car-year" min="1900" max="1985" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="car-make">Vehicle Make*</label>
+                    <input type="text" id="car-make" name="car-make" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="car-model">Vehicle Model*</label>
+                    <input type="text" id="car-model" name="car-model" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="car-description">Vehicle Description*</label>
+                    <textarea id="car-description" name="car-description" rows="5" required></textarea>
+                    <span class="form-hint">Tell us about your car's history, modifications, restoration details, and
+                        what makes it special.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="car-photo">Upload Photos (max 3)</label>
+                    <input type="file" id="car-photo" name="car-photo" accept="image/*" multiple>
+                    <span class="form-hint">Please upload high-quality images of your vehicle. Exterior, interior, and
+                        engine bay photos are recommended.</span>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="consent" name="consent" required>
+                    <label for="consent">I agree to allow Desert Drive to feature my vehicle on their website and social
+                        media.</label>
+                </div>
+
+                <button type="submit" class="cta-button">Submit Registration</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="featured-examples">
+        <div class="container">
+            <h2>Featured Vehicles</h2>
+            <p>These classic cars were recently featured on our homepage after being registered by their owners.</p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <img src="images/car1.jpg" alt="1965 Ford Mustang">
+                    <h3>1965 Ford Mustang</h3>
+                    <p>Restored to original condition with all matching numbers. Featured on our homepage in January
+                        2025.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="images/car2.jpg" alt="1957 Chevrolet Bel Air">
+                    <h3>1957 Chevrolet Bel Air</h3>
+                    <p>This stunning turquoise Bel Air has been in the same family for over 40 years. Featured in
+                        February 2025.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="images/car3.jpg" alt="1970 Dodge Challenger">
+                    <h3>1970 Dodge Challenger</h3>
+                    <p>A perfect example of American muscle with a 426 Hemi engine. Featured in March 2025.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Desert Drive</h3>
+                    <p>A Classic Car Cruises Community of New Mexico</p>
+                </div>
+                <div class="footer-nav">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="clubs.html">Car Clubs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Email: info@desertdrivecruises.com</p>
+                    <p>Phone: (505) 555-0123</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><span class="icon">Facebook</span></a>
+                        <a href="#" aria-label="Instagram"><span class="icon">Instagram</span></a>
+                        <a href="#" aria-label="Twitter"><span class="icon">Twitter</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Desert Drive | <a href="sitemap.html">Site Plan</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Form validation and handling
+            const form = document.getElementById('car-registration');
+
+            form.addEventListener('submit', function (event) {
+                // Don't prevent default form submission as we want to navigate to confirmation page
+
+                // Simple validation check
+                let isValid = true;
+                const requiredFields = form.querySelectorAll('[required]');
+
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.classList.add('error');
+                        event.preventDefault(); // Prevent form submission if validation fails
+                    } else {
+                        field.classList.remove('error');
+                    }
+                });
+
+                // If valid, let the form submit to the confirmation page
+                // Data will be passed in the URL query parameters
+            });
+
+            // Pre-fill form with event data if coming from an event page
+            const urlParams = new URLSearchParams(window.location.search);
+            const eventId = urlParams.get('event');
+
+            if (eventId) {
+                // Fetch event data and pre-fill some form fields
+                fetch('data/events.json')
+                    .then(response => response.json())
+                    .then(events => {
+                        const event = events.find(e => e.id == eventId);
+                        if (event) {
+                            document.querySelector('.register-hero h2').textContent = `Register for ${event.title}`;
+                            document.querySelector('.register-hero .subheading').textContent =
+                                `${event.date} at ${event.location}`;
+                        }
+                    })
+                    .catch(error => console.error('Error fetching event data:', error));
+            }
+
+            // Highlight active page in navigation
+            document.querySelectorAll('.main-header nav a').forEach(link => {
+                if (link.getAttribute('href') === window.location.pathname.split('/').pop()) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

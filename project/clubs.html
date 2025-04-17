@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Clubs - Desert Drive</title>
+    <meta name="description"
+        content="Discover local classic car clubs and communities across New Mexico and connect with fellow enthusiasts.">
+    <!-- Google Fonts: Orbitron for headings and Roboto for body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1>Desert Drive</h1>
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="clubs.html" class="active">Car Clubs</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero clubs-hero">
+        <div class="container">
+            <h2>New Mexico Car Clubs</h2>
+            <p class="subheading">Connect with local classic car communities and enthusiasts</p>
+        </div>
+    </section>
+
+    <section class="clubs-intro">
+        <div class="container">
+            <h2>Find Your Community</h2>
+            <p>New Mexico is home to dozens of classic car clubs, each with their own focus and community. Whether
+                you're interested in American muscle, European classics, or vintage hot rods, there's a club for you.
+                Browse our directory below to find clubs in your area.</p>
+            <div class="filter-controls">
+                <label for="club-filter">Filter by interest:</label>
+                <select id="club-filter">
+                    <option value="all">All Clubs</option>
+                    <option value="muscle">Muscle Cars</option>
+                    <option value="european">European</option>
+                    <option value="route66">Route 66</option>
+                    <option value="hot-rod">Hot Rods</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <section class="clubs-directory">
+        <div class="container">
+            <div class="clubs-grid" id="clubs-container">
+                <div class="loading-spinner">Loading clubs...</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="register-club">
+        <div class="container">
+            <h2>Register Your Club</h2>
+            <p>Do you run a classic car club in New Mexico? Get your club listed in our directory and connect with
+                enthusiasts across the state!</p>
+            <a href="contact.html" class="cta-button">Add Your Club</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Desert Drive</h3>
+                    <p>A Classic Car Cruises Community of New Mexico</p>
+                </div>
+                <div class="footer-nav">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="clubs.html">Car Clubs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Email: info@desertdrivecruises.com</p>
+                    <p>Phone: (505) 555-0123</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><span class="icon">Facebook</span></a>
+                        <a href="#" aria-label="Instagram"><span class="icon">Instagram</span></a>
+                        <a href="#" aria-label="Twitter"><span class="icon">Twitter</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Desert Drive | <a href="sitemap.html">Site Plan</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const clubsContainer = document.getElementById('clubs-container');
+            const clubFilter = document.getElementById('club-filter');
+
+            // Fetch clubs from JSON
+            fetch('data/clubs.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(clubs => {
+                    // Store all clubs for filtering
+                    const allClubs = [...clubs];
+
+                    // Remove loading spinner
+                    clubsContainer.innerHTML = '';
+
+                    // Display clubs
+                    displayClubs(allClubs);
+
+                    // Setup filtering
+                    clubFilter.addEventListener('change', function () {
+                        const filterValue = this.value;
+                        let filteredClubs = allClubs;
+
+                        if (filterValue === 'muscle') {
+                            filteredClubs = allClubs.filter(club =>
+                                club.description.toLowerCase().includes('muscle') ||
+                                club.name.toLowerCase().includes('muscle'));
+                        } else if (filterValue === 'european') {
+                            filteredClubs = allClubs.filter(club =>
+                                club.description.toLowerCase().includes('european') ||
+                                club.name.toLowerCase().includes('european'));
+                        } else if (filterValue === 'route66') {
+                            filteredClubs = allClubs.filter(club =>
+                                club.description.toLowerCase().includes('route 66') ||
+                                club.name.toLowerCase().includes('route 66'));
+                        } else if (filterValue === 'hot-rod') {
+                            filteredClubs = allClubs.filter(club =>
+                                club.description.toLowerCase().includes('hot rod') ||
+                                club.name.toLowerCase().includes('hot rod'));
+                        }
+
+                        clubsContainer.innerHTML = '';
+                        displayClubs(filteredClubs);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching clubs:', error);
+                    clubsContainer.innerHTML = '<p>Unable to load clubs. Please try again later.</p>';
+                });
+
+            // Function to display clubs
+            function displayClubs(clubs) {
+                if (clubs.length === 0) {
+                    clubsContainer.innerHTML = '<p>No clubs match your filter criteria. Please try a different filter.</p>';
+                    return;
+                }
+
+                clubs.forEach(club => {
+                    const clubCard = document.createElement('div');
+                    clubCard.className = 'club-card';
+
+                    clubCard.innerHTML = `
+                        <img src="${club.image}" alt="${club.name}" class="club-image">
+                        <div class="club-info">
+                            <h3>${club.name}</h3>
+                            <p class="club-location"><strong>Location:</strong> ${club.location}</p>
+                            <p class="club-founded"><strong>Founded:</strong> ${club.founded}</p>
+                            <p class="club-description">${club.description}</p>
+                            <div class="club-details">
+                                <p><strong>Meeting Schedule:</strong> ${club.meeting}</p>
+                                <p><strong>Membership Fee:</strong> ${club.fee}</p>
+                                <p><strong>Members:</strong> ${club.members}</p>
+                            </div>
+                            <a href="#" class="button">Visit Club Website</a>
+                        </div>
+                    `;
+
+                    clubsContainer.appendChild(clubCard);
+                });
+            }
+
+            // Highlight active page in navigation
+            document.querySelectorAll('.main-header nav a').forEach(link => {
+                if (link.getAttribute('href') === window.location.pathname.split('/').pop()) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

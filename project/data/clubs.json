@@ -1,0 +1,68 @@
+[
+    {
+        "id": 1,
+        "name": "Albuquerque Muscle Car Association",
+        "location": "Albuquerque",
+        "founded": "1985",
+        "description": "The AMCA focuses on American muscle cars from the 1960s and 1970s. Monthly meetings, weekly cruises, and quarterly car shows make this one of the most active clubs in the state.",
+        "meeting": "First Saturday of each month",
+        "fee": "$35/year",
+        "members": "125+",
+        "image": "images/club1.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Santa Fe European Auto Society",
+        "location": "Santa Fe",
+        "founded": "1992",
+        "description": "Dedicated to the preservation and appreciation of European classic cars. The society hosts technical workshops, driving events, and an annual concours d'elegance in the historic plaza.",
+        "meeting": "Third Thursday of each month",
+        "fee": "$50/year",
+        "members": "85",
+        "image": "images/club2.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Route 66 Cruisers",
+        "location": "Gallup",
+        "founded": "2005",
+        "description": "A family-friendly club celebrating all vintages and types of classic cars with a focus on preserving the history of Route 66. Regular cruises along historic stretches of the Mother Road.",
+        "meeting": "Second Sunday of each month",
+        "fee": "$25/year",
+        "members": "60",
+        "image": "images/club3.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Las Cruces Hot Rod Association",
+        "location": "Las Cruces",
+        "founded": "1978",
+        "description": "One of the oldest clubs in New Mexico, focusing on hot rods, customs, and classics. The association is known for its community involvement and charity events.",
+        "meeting": "First Tuesday of each month",
+        "fee": "$30/year",
+        "members": "110",
+        "image": "images/club4.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Silver City Vintage Vehicles",
+        "location": "Silver City",
+        "founded": "1999",
+        "description": "A diverse club welcoming all types of classic and collectible vehicles. Known for their scenic drives through the Gila National Forest and annual charity drive for local food banks.",
+        "meeting": "Last Wednesday of each month",
+        "fee": "$20/year",
+        "members": "45",
+        "image": "images/club5.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Farmington Classic Chrome Club",
+        "location": "Farmington",
+        "founded": "2008",
+        "description": "Specializing in chrome-era classics from the 1950s and early 1960s. The club hosts regular technical workshops on restoration and chrome preservation techniques.",
+        "meeting": "Second Thursday of each month",
+        "fee": "$40/year",
+        "members": "75",
+        "image": "images/club6.jpg"
+    }
+]

@@ -1,0 +1,68 @@
+[
+    {
+        "id": 1,
+        "title": "Santa Fe Vintage Auto Showcase",
+        "location": "Santa Fe Plaza, Santa Fe",
+        "time": "10:00 AM - 4:00 PM",
+        "date": "2025-04-25",
+        "month": "APR",
+        "day": "25",
+        "year": "2025",
+        "description": "Join us for the annual Santa Fe Vintage Auto Showcase featuring over 100 classic vehicles from across the Southwest. Food vendors, live music, and awards ceremony."
+    },
+    {
+        "id": 2,
+        "title": "Route 66 Classic Cruise",
+        "location": "Old Town, Albuquerque",
+        "time": "5:00 PM - 9:00 PM",
+        "date": "2025-05-08",
+        "month": "MAY",
+        "day": "08",
+        "year": "2025",
+        "description": "Cruise down historic Route 66 with fellow classic car enthusiasts. This monthly event includes a group drive and ends with a meetup at Old Town Albuquerque."
+    },
+    {
+        "id": 3,
+        "title": "White Sands Desert Drive",
+        "location": "White Sands National Park, Alamogordo",
+        "time": "2:00 PM - Sunset",
+        "date": "2025-05-15",
+        "month": "MAY",
+        "day": "15",
+        "year": "2025",
+        "description": "Experience a breathtaking drive through White Sands National Park. This photoshoot event will capture your classic car against the stunning white sand dunes."
+    },
+    {
+        "id": 4,
+        "title": "Taos Mountain Classic Car Rally",
+        "location": "Taos Plaza, Taos",
+        "time": "11:00 AM - 6:00 PM",
+        "date": "2025-06-12",
+        "month": "JUN",
+        "day": "12",
+        "year": "2025",
+        "description": "A full day of classic car appreciation in beautiful Taos. Mountain drive in the morning, followed by a show and shine event at Taos Plaza."
+    },
+    {
+        "id": 5,
+        "title": "Roswell Cosmic Cruise",
+        "location": "MainStreet Roswell, Roswell",
+        "time": "6:00 PM - 10:00 PM",
+        "date": "2025-07-04",
+        "month": "JUL",
+        "day": "04",
+        "year": "2025",
+        "description": "A unique nighttime cruise event with an alien theme. Classic cars, cosmic decorations, and special awards for the most creative vehicles."
+    },
+    {
+        "id": 6,
+        "title": "Las Vegas Vintage Grand Prix",
+        "location": "Storrie Lake State Park, Las Vegas, NM",
+        "time": "9:00 AM - 5:00 PM",
+        "date": "2025-07-18",
+        "month": "JUL",
+        "day": "18",
+        "year": "2025",
+        "description": "A day of classic car racing and exhibitions around scenic Storrie Lake. Spectator areas, food trucks, and a classic car corral for attendees who bring their own vintage vehicles."
+    }
+]

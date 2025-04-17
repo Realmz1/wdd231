@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Desert Drive</title>
+    <meta name="description"
+        content="Find upcoming classic car events, meetups, and cruise gatherings across New Mexico.">
+    <!-- Google Fonts: Orbitron for headings and Roboto for body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1>Desert Drive</h1>
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html" class="active">Events</a></li>
+                    <li><a href="clubs.html">Car Clubs</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero events-hero">
+        <div class="container">
+            <h2>Upcoming Events</h2>
+            <p class="subheading">Find classic car events, meetups, and cruise gatherings across New Mexico</p>
+            <div id="visitor-greeting" class="visitor-message"></div>
+        </div>
+    </section>
+
+    <section class="event-calendar">
+        <div class="container">
+            <h2>Event Calendar</h2>
+            <div class="weather-info">
+                <h3>New Mexico Weather</h3>
+                <p>Current weather conditions for planning your event attendance:</p>
+                <div class="weather-container">
+                    <div id="weather-location">Loading weather data...</div>
+                    <div id="weather-temp"></div>
+                    <div id="weather-desc"></div>
+                    <div id="weather-icon"></div>
+                </div>
+            </div>
+            <div class="events-list" id="events-container">
+                <div class="loading-spinner">Loading events...</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="submit-event">
+        <div class="container">
+            <h2>Submit Your Event</h2>
+            <p>Are you organizing a classic car event in New Mexico? Let us know and we'll add it to our calendar!</p>
+            <a href="contact.html" class="cta-button">Submit Event Details</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Desert Drive</h3>
+                    <p>A Classic Car Cruises Community of New Mexico</p>
+                </div>
+                <div class="footer-nav">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="clubs.html">Car Clubs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Email: info@desertdrivecruises.com</p>
+                    <p>Phone: (505) 555-0123</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><span class="icon">Facebook</span></a>
+                        <a href="#" aria-label="Instagram"><span class="icon">Instagram</span></a>
+                        <a href="#" aria-label="Twitter"><span class="icon">Twitter</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Desert Drive | <a href="sitemap.html">Site Plan</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const visitorGreeting = document.getElementById('visitor-greeting');
+            const eventsContainer = document.getElementById('events-container');
+
+            // Handle visitor greeting with localStorage
+            const lastVisit = localStorage.getItem('lastVisit');
+            const now = new Date().getTime();
+            localStorage.setItem('lastVisit', now);
+
+            if (!lastVisit) {
+                // First time visitor
+                visitorGreeting.textContent = 'Welcome to our Events page! Check out our upcoming classic car gatherings.';
+            } else {
+                const daysSinceLastVisit = Math.floor((now - lastVisit) / (1000 * 60 * 60 * 24));
+
+                if (daysSinceLastVisit < 1) {
+                    visitorGreeting.textContent = 'Welcome back! Thanks for visiting our Events page again today.';
+                } else if (daysSinceLastVisit === 1) {
+                    visitorGreeting.textContent = 'Welcome back! It\'s been 1 day since your last visit.';
+                } else if (daysSinceLastVisit > 30) {
+                    visitorGreeting.textContent = 'Long time no see! It\'s been over a month since your last visit. We have many new events!';
+                } else {
+                    visitorGreeting.textContent = `Welcome back! It's been ${daysSinceLastVisit} days since your last visit.`;
+                }
+            }
+
+            // Fetch events from JSON
+            fetch('data/events.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(events => {
+                    // Remove loading spinner
+                    eventsContainer.innerHTML = '';
+
+                    // Sort events by date
+                    events.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+                    // Only show future events
+                    const today = new Date();
+                    today.setHours(0, 0, 0, 0);
+
+                    const futureEvents = events.filter(event => {
+                        const eventDate = new Date(event.date);
+                        return eventDate >= today;
+                    });
+
+                    if (futureEvents.length === 0) {
+                        eventsContainer.innerHTML = '<p>No upcoming events found. Check back soon!</p>';
+                        return;
+                    }
+
+                    // Create event cards
+                    futureEvents.forEach(event => {
+                        const eventCard = document.createElement('div');
+                        eventCard.className = 'event-card';
+
+                        eventCard.innerHTML = `
+                            <div class="event-date">
+                                <span class="month">${event.month}</span>
+                                <span class="day">${event.day}</span>
+                                <span class="year">${event.year}</span>
+                            </div>
+                            <div class="event-details">
+                                <h3>${event.title}</h3>
+                                <p class="event-location"><strong>Location:</strong> ${event.location}</p>
+                                <p class="event-time"><strong>Time:</strong> ${event.time}</p>
+                                <p class="event-description">${event.description}</p>
+                                <a href="register.html?event=${event.id}" class="button">Register to Attend</a>
+                            </div>
+                        `;
+
+                        eventsContainer.appendChild(eventCard);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching events:', error);
+                    eventsContainer.innerHTML = '<p>Unable to load events. Please try again later.</p>';
+                });
+
+            // Weather API integration for New Mexico
+            const weatherLocation = document.getElementById('weather-location');
+            const weatherTemp = document.getElementById('weather-temp');
+            const weatherDesc = document.getElementById('weather-desc');
+            const weatherIcon = document.getElementById('weather-icon');
+
+            // Fixed location for New Mexico (using Santa Fe as central location)
+            const city = 'Santa Fe,NM,US';
+
+            // Fetch weather data function
+            function fetchWeather() {
+                const apiKey = 'bd5e378503939ddaee76f12ad7a97608'; // Add your OpenWeather API key here
+                const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+
+                fetch(weatherApiUrl)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Weather data not available');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        weatherLocation.textContent = `${data.name}, New Mexico`;
+                        weatherTemp.textContent = `${Math.round(data.main.temp)}°F / ${Math.round((data.main.temp - 32) * 5 / 9)}°C`;
+                        weatherDesc.textContent = data.weather[0].description;
+                        weatherIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="${data.weather[0].description}">`;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching weather:', error);
+                        weatherLocation.textContent = 'Santa Fe, New Mexico';
+                        weatherTemp.textContent = 'Weather data unavailable';
+                        weatherDesc.textContent = 'Please check back later';
+                        weatherIcon.innerHTML = '';
+                    });
+            }
+
+            // Fetch weather for New Mexico
+            fetchWeather();
+
+            // Highlight active page in navigation
+            document.querySelectorAll('.main-header nav a').forEach(link => {
+                if (link.getAttribute('href') === window.location.pathname.split('/').pop()) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
